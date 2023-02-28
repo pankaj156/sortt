@@ -5,8 +5,158 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body{
+            background-color: #828080d8;
+        }
+        ol{
+            
+           list-style:none;
+            border:solid 10px #FC5185;
+            transition: outline 0.6s linear;
+            margin:0.5em;
+            
+        }
+    ol li{
+            color:rgb(104, 91, 71);
+            font-size: 20px;
+            font-family: Arial;
+            font-weight: bold;
+            
+        }
+        #icon{
+            
+            font-size: 30px;
+            
+            
+        }
+        .heading{
+            text-align: center;
+            color:blue;
+
+        }
+        #ty{
+            text-align: center;
+            
+
+        }
+        div{
+            background-color: #828080d8;
+            text-align:center;
+            font-family: Arial;
+            margin-right: 10px;
+            margin-left:10px;
+            font-weight: bold;
+            padding: 5px;
+            border:3px dotted brown;
+            color:aliceblue;
+
+        }
+        h3{
+            text-align: center;
+        }
+
+    </style>
+<script>
+var cities=["Ranchi","Bangalore","Delhi","Pune","Hyderabad","Orissa","Kerela"];
+
+function loaditems(){
+document.getElementById("List").innerHTML="";
+document.querySelector("div").innerHTML="";
+for(var loop of cities)
+{
+var li=document.createElement("li");
+li.innerHTML=loop;
+document.getElementById("List").appendChild(li);
+var div=document.createElement("div");
+div.innerHTML=loop;
+document.querySelector("div").appendChild(div);
+
+}
+}
+function bodyload(){
+    
+    loaditems();
+}
+
+function sorta2z(){
+    
+    
+    cities.sort();
+    
+}
+
+
+function sortz2a(){
+    
+
+    cities.sort();
+    cities.reverse();
+    
+}
+function SortClick(){
+            var icon = document.getElementById("icon");
+            icon.className = (icon.className=="bi bi-sort-alpha-down")?"bi bi-sort-alpha-up":"bi bi-sort-alpha-down";
+          
+
+             console.log(icon.className);
+            if(icon.className=="bi bi-sort-alpha-down"){
+
+                var design=document.querySelector("ol");
+                design.style.color="green";
+                design.style.fontWeight="bold";
+                  design.style.backgroundColor="yellow";
+
+                document.getElementById("ty").innerHTML="Assending Order";
+                ty.style.color="red";
+                
+                sorta2z();
+                document.getElementById("sor").innerHTML="Final Sorted in Assending Order";
+                sor.style.color="Yellow";
+                sor.style.fontWeight="bold";
+                
+                
+                
+            }
+            else{
+                var design=document.querySelector("ol");
+                  design.style.backgroundColor="skyblue";
+                document.getElementById("ty").innerHTML="Desending Order";
+                ty.style.color="green";
+                
+
+                sortz2a();
+                loaditems();
+                document.getElementById("sor").innerHTML="Final Sorted in Desending Order";
+                sor.style.color="skyblue";
+                sor.style.fontWeight="bold";
+            }
+            loaditems();
+           
+        }
+       
+</script>
+
 </head>
-<body>
-    <h1>My cities</h1>
+<body onload="bodyload()">
+    <h1 class="heading">Sort Cities</h1>
+<ol id="List">
+
+</ol>
+<h2 id="ty"></h2>
+
+<button onclick="SortClick()" class="btn btn-primary btn-lg btn-block">
+    <span class="bi bi-sort-alpha-down " id="icon"></span>
+</button>
+
+<h3 id="sor"></h3>
+<div> 
+</div>
+
+
 </body>
-</html>
+</html> 
